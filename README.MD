@@ -1,6 +1,6 @@
 ﻿##CoconutUtil
 --------------
-` CoconutUtil(all in one简称) 包含 ioc 框架 、以及一些常用的工具类 `
+` CoconutUtil 包含 ioc 框架 、以及一些常用的工具类 `
 ---------------
 
 简介
