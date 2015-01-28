@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Coconututil by ihgoo</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Coconututil</h1>
+          <h2>一个水果儿味儿的工具类</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/ihgoo/CoconutUtil/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/ihgoo/CoconutUtil/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/ihgoo/CoconutUtil" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a id="coconututil" class="anchor" href="#coconututil" aria-hidden="true"><span class="octicon octicon-link"></span></a>CoconutUtil</h2>
+
+<hr>
+
+<h2>
+<a id="coconututilall-in-one简称-包含-ioc-框架-以及一些常用的工具类" class="anchor" href="#coconututilall-in-one%E7%AE%80%E7%A7%B0-%E5%8C%85%E5%90%AB-ioc-%E6%A1%86%E6%9E%B6-%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>CoconutUtil(all in one简称) 包含 ioc 框架 、以及一些常用的工具类</code>
+</h2>
+
+<h2>
+<a id="简介" class="anchor" href="#%E7%AE%80%E4%BB%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>简介</h2>
+
+<h3>
+<a id="几个简单util类" class="anchor" href="#%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95util%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>几个简单util类</h3>
+
+<ul>
+<li><p>ViewUtils 控制反转,也就是IoC(Inversion of Control)框架&amp;依赖注入(DI)，用反射注解方便的 替代findviewbyid，setContentView等常用方法，有效减少代码量。</p></li>
+<li><p>BitmapUtils 对图片缩放进行了处理，加载本地图片不会OOM异常了</p></li>
+<li><p>RequestUtils 初始化网络请求、获得一个请求队列、添加一个请求队列等方法</p></li>
+</ul>
+
+<h2>
+<a id="控制反转" class="anchor" href="#%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>控制反转</h2>
+
+<ul>
+<li>ViewUtils 控制反转&amp;依赖注入，快速开发，极少代码来findviewbyid、setonclick等等</li>
+</ul>
+
+<h2>
+<a id="图像处理" class="anchor" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>图像处理</h2>
+
+<ul>
+<li><p>GuideImage 在activity表面添加了一层图层，作为引导图层用，可添加透明图层</p></li>
+<li>
+<p>BitmapUtils 对Bitmap二次处理，避免OOM异常出现</p>
+
+<ul>
+<li>getBitmap(String imagePath, int width, int height) </li>
+<li>getBitmap(Resources res, InputStream is, int width,int height)等方法</li>
+<li>getBitmapByViewSize 根据View大小获取自适应的bitmap对象</li>
+</ul>
+</li>
+<li>
+<p>Bitmap缓存</p>
+
+<ul>
+<li>FifoCache</li>
+<li>LruCache</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="网络请求" class="anchor" href="#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>网络请求</h2>
+
+<ul>
+<li><p>RequestManager 内含初始化Volley方法以及获取请求队列实例</p></li>
+<li><p>GsonRequest 请求网络成功后，会解析json，用gson反射方法赋值到bean对象中</p></li>
+<li><p>RequestUtils 初始化请求、获得一个请求队列、添加一个请求队列等方法</p></li>
+</ul>
+
+<h2>
+<a id="缓存" class="anchor" href="#%E7%BC%93%E5%AD%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>缓存</h2>
+
+<ul>
+<li>ACache 可以缓存网络请求数据，比如oschina的android客户端可以缓存http请求的新闻内容，缓存时间假设为1个小时，超时后自动失效，让客户端重新请求新的数据，减少客户端流量，同时减少服务器并发量。</li>
+</ul>
+
+<h2>
+<a id="db" class="anchor" href="#db" aria-hidden="true"><span class="octicon octicon-link"></span></a>DB</h2>
+
+<ul>
+<li>推荐使用GreenDao，优点：
+
+<ul>
+<li>使用java工程生成JavaObject，熟练后非常方便</li>
+<li>数据库操作便捷，开发效率高</li>
+<li>内存消耗最少，性能最佳</li>
+</ul>
+</li>
+<li>使用教程 参考个人博客 <a href="http://xunhou.me/greendao/"><code>GreenDao学习</code></a>
+</li>
+</ul>
+
+<h2>
+<a id="其他工具类" class="anchor" href="#%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他工具类</h2>
+
+<ul>
+<li><p>LogUtils 自定义log日志，省略参数key，可定位到哪个类第几行</p></li>
+<li><p>ScreenUtil 和屏幕大小有关工具类</p></li>
+<li><p>Base64、Md5</p></li>
+<li><p>BitmapTool 关于图片的工具类</p></li>
+<li><p>EncryptUtils 加密工具类 des加密</p></li>
+<li><p>LogUtils 省略了传入tag的log</p></li>
+<li><p>StringUtils 对字符串处理的工具类</p></li>
+<li><p>SharePreferenceUtil 对SharePreference封装简单get&amp;put方法</p></li>
+<li><p>PhoneUtils 获取手机信息的工具类，诸如获取手机型号获取手机sd卡大小等</p></li>
+</ul>
+        </section>
+
+        <footer>
+          Coconututil is maintained by <a href="https://github.com/ihgoo">ihgoo</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
