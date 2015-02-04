@@ -73,6 +73,39 @@ public class BitmapUtils {
 		return BitmapFactory.decodeStream(is, null, options);
 	}
 
+    /**
+     * Return Drawable through by resources.
+     * @param is
+     * @param width
+     * @param height
+     * @return
+     */
+    public static Drawable getDrawable(InputStream is, int width, int height){
+       return getDrawable(is,width,height,null);
+    }
+
+    /**
+     * Return Drawable through by resources.
+     * @param is
+     * @param width
+     * @param height
+     * @param srcName
+     * @return
+     */
+    public static Drawable getDrawable(InputStream is, int width, int height ,String srcName){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inTempStorage = new byte[TEMP_STORAGE_SIZE];
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        options.inPurgeable = true;
+        options.inInputShareable = true;
+        options.inSampleSize = calculateInSampleSize(options, width, height);
+        options.inJustDecodeBounds = false;
+        return Drawable.createFromStream(is,srcName);
+    }
+
+
+
+
 	/**
 	 * 根据View得到自适应的bitmap对象
 	 * 
