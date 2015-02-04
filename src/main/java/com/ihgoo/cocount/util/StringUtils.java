@@ -3,7 +3,6 @@ package com.ihgoo.cocount.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
 public final class StringUtils {
@@ -14,7 +13,6 @@ public final class StringUtils {
 	 * @param string
 	 * @return 为空或null返回false，否则返回true
 	 */
-	@SuppressLint("NewApi")
 	public static boolean isNull(String string) {
 		if (string == null && "".equals(string)) {
 			return false;
@@ -106,11 +104,11 @@ public final class StringUtils {
 	 * @param content
 	 * @return
 	 */
-	public static int chineseWidth2StringLenth(int chineseLengthForDisplay, String string) {
+	public static int chineseWidth2StringLenth(int chineseLengthForDisplay, String content) {
 		int result = 0;
 		int displayWidth = chineseLengthForDisplay * 2;
-		if (string != null) {
-			for (char chr : string.toCharArray()) {
+		if (content != null) {
+			for (char chr : content.toCharArray()) {
 				// 中文
 				if (chr >= 0x4e00 && chr <= 0x9fbb) {
 					displayWidth -= 2;
@@ -160,5 +158,77 @@ public final class StringUtils {
 		else
 			return mobiles.matches(telRegex);
 	}
-	
+
+
+
+    /**
+     * 过滤emoji 或者 其他非文字类型的字符
+     * @param source
+     * @return
+     */
+    public static String filterEmoji(String source) {
+
+        if (!containsEmoji(source)) {
+            return source;//如果不包含，直接返回
+        }
+        //到这里铁定包含
+        StringBuilder buf = null;
+
+        int len = source.length();
+
+        for (int i = 0; i < len; i++) {
+            char codePoint = source.charAt(i);
+
+            if (!isEmojiCharacter(codePoint)) {
+                if (buf == null) {
+                    buf = new StringBuilder(source.length());
+                }
+
+                buf.append(codePoint);
+            } else {
+            }
+        }
+
+        if (buf == null) {
+            return "";
+        } else {
+            if (buf.length() == len) {//这里的意义在于尽可能少的toString，因为会重新生成字符串
+                buf = null;
+                return source;
+            } else {
+                return buf.toString();
+            }
+        }
+
+    }
+
+    /**
+     * 是否包含Emoji表情
+     * @param content
+     * @return
+     */
+    private static boolean containsEmoji(String content){
+        char[] chars = content.toCharArray();
+        boolean hasEmoji = false;
+        for(char charItem:chars){
+            hasEmoji = isEmojiCharacter(charItem);
+            if (hasEmoji){
+                break;
+            }
+        }
+        return hasEmoji;
+    }
+
+    private static boolean isEmojiCharacter(char codePoint) {
+        return !((codePoint == 0x0) ||
+                (codePoint == 0x9) ||
+                (codePoint == 0xA) ||
+                (codePoint == 0xD) ||
+                ((codePoint >= 0x20) && (codePoint <= 0xD7FF)) ||
+                ((codePoint >= 0xE000) && (codePoint <= 0xFFFD)) ||
+                ((codePoint >= 0x10000) && (codePoint <= 0x10FFFF)));
+    }
+
+
+
 }
