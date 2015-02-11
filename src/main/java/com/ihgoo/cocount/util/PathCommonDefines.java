@@ -18,6 +18,12 @@ public class PathCommonDefines {
 			+ "/photo_cache";
 	public static final String MY_FAVOURITE_FOLDER = APP_FOLDER_ON_SD
 			+ "/my_favourite";
+    public static final String FILTER_BEAN = APP_FOLDER_ON_SD
+            + "/my_favourite";
+    public static final String WEBVIEW_CACHE = APP_FOLDER_ON_SD
+            + "/webview";
+
+
 	/**
 	 * 创建用户时的头像缓存
 	 */

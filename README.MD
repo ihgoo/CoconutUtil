@@ -6,8 +6,6 @@
 简介
 -------
 ###几个简单util类
-* ViewUtils 控制反转,也就是IoC(Inversion of Control)框架&依赖注入(DI)，用反射注解方便的 替代findviewbyid，setContentView等常用方法，有效减少代码量。
-
 * BitmapUtils 对图片缩放进行了处理，加载本地图片不会OOM异常了
 
 * RequestUtils 初始化网络请求、获得一个请求队列、添加一个请求队列等方法
