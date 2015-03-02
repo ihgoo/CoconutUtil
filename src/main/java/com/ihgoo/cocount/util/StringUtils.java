@@ -9,6 +9,23 @@ import java.util.Date;
 public final class StringUtils {
 
     /**
+     * 通过{n},格式化.
+     *
+     * @param src
+     * @param objects
+     * @return
+     */
+    public static String format(String src, Object... objects) {
+        int k = 0;
+        for (Object obj : objects) {
+            src = src.replace("{" + k + "}", obj.toString());
+            k++;
+        }
+        return src;
+    }
+
+
+    /**
      * 判断字符串是否为null或""
      *
      * @param string
@@ -16,9 +33,9 @@ public final class StringUtils {
      */
     public static boolean isNull(String string) {
         if (string == null && "".equals(string)) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static String join(String[] array, String sep) {
