@@ -1,16 +1,16 @@
 package com.ihgoo.cocount.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.ihgoo.cocount.cache.ImageSDCacher;
 import com.ihgoo.cocount.util.ScreenUtil.Screen;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class BitmapTool {
 
@@ -336,7 +336,7 @@ public class BitmapTool {
 
 	/**
 	 * 计算初始采样率
-	 * 
+	 *
 	 * @param options
 	 * @param minSideLength
 	 * @param maxNumOfPixels
@@ -357,7 +357,7 @@ public class BitmapTool {
 
 		(int) Math.min(Math.floor(w / minSideLength),
 
-		Math.floor(h / minSideLength));
+                Math.floor(h / minSideLength));
 
 		if (upperBound < lowerBound) {
 
