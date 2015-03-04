@@ -54,7 +54,7 @@ public  class SerializeUtil<T>{
      *            对应的文件名
      * @return	读取文件中的数据;
      */
-    public T readyDataToFile(String flie){
+    public T readDataToFile(String flie){
         ObjectInputStream is = null;
         File f=new File(flie);
         T data = null;
