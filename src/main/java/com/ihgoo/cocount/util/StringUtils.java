@@ -32,7 +32,7 @@ public final class StringUtils {
      * @return 为空或null返回false，否则返回true
      */
     public static boolean isNull(String string) {
-        if (string == null && "".equals(string)) {
+        if(null == string && "".equals(string)){
             return true;
         }
         return false;
